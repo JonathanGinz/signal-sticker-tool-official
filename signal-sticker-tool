@@ -309,12 +309,16 @@ PREVIEW_HTML_DOC = r"""<!DOCTYPE html>
     position: relative;
     display: inline-block;
     padding: 1em;
-    height: auto;
+    height: 128px;
 }
 .sticker .emoji {
     position: absolute;
-    left: 1em;
-    top: 1em;
+    left: 0;
+    top: 0;
+    font-size: 2em;
+}
+img {
+    height: 128px;
 }
   </style>
  </head>
@@ -334,7 +338,8 @@ PREVIEW_HTML_DOC = r"""<!DOCTYPE html>
         var bg_colors = [
             ["White", "#000000", "#ffffff"],
             ["Black", "#ffffff", "#000000"],
-            ["Gray", "#000000","#aaaaaa" ]
+            ["Gray", "#000000","#aaaaaa" ],
+            ["Signal Desktop Dark", "#efefef", "#121212"]
         ];
 
         var color_div = document.getElementById("color-div");
