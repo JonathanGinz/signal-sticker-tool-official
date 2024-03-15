@@ -359,8 +359,9 @@ img {
         /* We "store" the last color selected in the URL fragment, so it
          * will survive refreshes.
          */
-        if (document.location.hash.startsWith("#bg-")) {
-            var color = document.location.hash.split("-")[1];
+        var fragment = unescape(document.location.hash);
+        if (fragment.startsWith("#bg-")) {
+            var color = fragment.split("-")[1];
             for (i in bg_colors) {
                 if (color == bg_colors[i][0]) {
                     document.body.style.color = bg_colors[i][1];
