@@ -118,7 +118,18 @@ This command will create a HTML file called "preview.html" in the pack directory
 
 ### Uploading sticker packs to Signal
 
-Signal requires users to be authenticated before they can upload sticker packs (but they also say they do not keep association between stickers and who uploaded them). For now, the only way to log-in is "borrowing" credentials from an already logged Signal Desktop client. To do this, launch the client from the command line with option passing the option `--enable-dev-tools`, open the Developer Tools and type `window.reduxStore.getState().items.uuid_id` to get the user name and `window.reduxStore.getState().items.password` to get the password. Then type
+Signal requires users to be authenticated before they can upload sticker packs (but they also say they do not keep association between stickers and who uploaded them). For now, the only way to log-in is "borrowing" credentials from an already logged Signal Desktop client.
+
+To obtain them, run the Signal Desktop app with the flag `--enable-dev-tools`, open the Developer Tools, **change the JavaScript context from `top` to `Electron Isolated Context`**, and type `window.reduxStore.getState().items.uuid_id` to get your USER, and `window.reduxStore.getState().items.password` to get your PASSWORD.
+
+<details>
+  <summary><i>Video: how to set JavaScript context</i></summary>
+
+https://github.com/signalstickers/signalstickers-client/assets/7778898/ca3f1fec-e908-49d9-88a8-e33d0ee9a453
+
+</details>
+
+Once you have both, type
 
     $ signal-sticker-tool login
 
@@ -199,4 +210,3 @@ If you change the code, please run in through pyflakes for static analysis and [
 - Email: alexandre@ittner.com.br
 - Web: https://www.ittner.com.br
 - PGP/GnuPG key: [0x48CF13A4BE42B8BD](https://www.ittner.com.br/key.pub.asc)
-
